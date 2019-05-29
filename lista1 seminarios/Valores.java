@@ -4,11 +4,11 @@ public class Valores {
 
     public static void main(String[] args) {
 
-        float[] conjuntoDados;
+        int[] conjuntoDados;
 
         int TAM = definirTamanho();
 
-        conjuntoDados = new float[TAM];
+        conjuntoDados = new int[TAM];
 
         preencherArranjo(conjuntoDados);
 
@@ -23,9 +23,9 @@ public class Valores {
 
 
 
-    private static float somaPares(float[] array){
+    private static int somaPares(int[] array){
 
-        float soma = 0;
+        int soma = 0;
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0)
@@ -35,9 +35,9 @@ public class Valores {
         return soma;
     }
 
-    private static float maiorElemento(float[] array){
+    private static int maiorElemento(int[] array){
 
-       float maior = array[0];
+       int maior = array[0];
 
         for (int i = 1; i < array.length; i++) {
             if (array[i] > maior)
@@ -48,25 +48,25 @@ public class Valores {
         return maior;
     }
 
-    private static float mediaElementos(float[] array){
+    private static float mediaElementos(int[] array){
 
-        float total = 0;
+        int total = 0;
         for (int i = 0; i < array.length; i++) {
             total += array[i];
         }
 
-        float media = total /((float) array.length);
+        float media = (float) total /((float) array.length);
 
         return media;
 
     }
 
-    private static int menoresMedia(float[] array, float media){
+    private static int menoresMedia(int[] array, float media){
 
         int c = 0;
 
         for (int i = 0; i < array.length;   i++) {
-            if (array[i] < media)
+            if ((float)array[i] < media)
                 c++;
 
         }
@@ -74,13 +74,13 @@ public class Valores {
         return c;
     }
 
-    private static void preencherArranjo(float[] array){
+    private static void preencherArranjo(int[] array){
 
         Scanner input = new Scanner(System.in);
 
         for (int i = 0; i < array.length; i++) {
-            if (input.hasNextFloat())
-                array[i] = input.nextFloat();
+            if (input.hasNextInt())
+                array[i] = input.nextInt();
         }
 
 
