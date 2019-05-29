@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Valores {
+public class ValoresBUGADA {
 
     public static void main(String[] args) {
 
