@@ -1,3 +1,11 @@
+/*
+Nome do aluno: Diogo Oliveira Neiss
+Número de matrícula: 649651
+Turno: manhã
+Nome do professor: Alexei Machado
+*/
+
+
 import java.util.Scanner;
 
 public class Chocolate {
