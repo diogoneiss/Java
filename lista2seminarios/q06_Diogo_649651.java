@@ -1,4 +1,4 @@
-// Questão: 06
+// Questão: 06 BOTAS TROCADAS
 // Nome completo do aluno: Diogo Oliveira Neiss
 // Número de matrícula: 649651
 // Turno: manhã
@@ -7,61 +7,64 @@
 
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.Collections;
+
 // O programa deve contar quantos pares de botas de tamanhos iguais para os dois pés são possíveis de serem formados.
-// Para tal, usarei classes. 
-// A entrada será ordenada, e serão criados objetos para cada tamanho de bota. Cada par E/D incrementará em 1 o contador do objeto.
+// Para tal, usarei classes.
+// A entrada será ordenada puramente para facilitar o laço de verificacao
 
 
 public class q06_Diogo_649651{
 
     public static void main(String[] args){
 
-    Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-    int numEntradas;
+        int numEntradas;
 
-    numEntradas = input.nextInt();
+        numEntradas = input.nextInt();
 
-    //Array de strings com as entradas;
-    
-    String[] conjuntoBotas = new String[numEntradas];
+        //pega o newline
+        input.nextLine();
 
-    for(int i = 0; i < numEntradas; i++){
-    
-        conjuntoBotas[i] = input.nextLine();
+        //Array de strings com as entradas;
 
-    }
+        String[] conjuntoBotas = new String[numEntradas];
 
-    Arrays.sort(conjuntoBotas);
+        for(int i = 0; i < numEntradas; i++){
 
-    //arrays pra armazenar tams e pes
+            conjuntoBotas[i] = input.nextLine();
 
-    String[] conjuntoTamanhos = new String[numEntradas];
-    String[] conjuntoPes = new String[numEntradas];
+        }
 
-    //Criar um array splitado com os tamanhos e, em outro array, no mesmo índice, o pé.
+        // ordena o array
+        Arrays.sort(conjuntoBotas);
 
-    String[] array = new String[2];
-   
-    for(int i = 0; i<numEntradas;i++){
-  
-    array = conjuntoBotas[i].split("\\s+");
-
-    conjuntoTamanhos[i] = array[0];
-    conjuntoPes[i] = array[1];
+        int paresFormados = 0;
+        String tamanhoAtual[];
 
 
-   } 
 
-   for(int j = 0;j<numEntradas;j++){
-       System.out.println(conjuntoBotas[j]);
-   }
-    //Criar os objetos 
-    //Chamar os metodos
-    //Somar os pares
+        for (int i = 0; i < numEntradas; i++) {
 
+            // corta o i-esimo item em duas strings, uma com nums e outra pé
+            tamanhoAtual = conjuntoBotas[i].split("\\s+");
 
+            int j = i+1;
+            boolean achouPar = false;
+
+            while (!achouPar && j < numEntradas){
+
+                // se a string tem o mesmo numero que a bota E NAO tem o mesmo pé, há um par
+                if (conjuntoBotas[j].contains(tamanhoAtual[0]) && !conjuntoBotas[j].contains(tamanhoAtual[1])){
+                    paresFormados++;
+                    achouPar = true;
+                }
+
+                j++;
+            }
+        }
+
+        System.out.println(paresFormados);
 
     }
 
